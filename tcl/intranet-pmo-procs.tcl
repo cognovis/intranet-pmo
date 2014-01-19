@@ -390,7 +390,11 @@ namespace eval planning_item {
 	Returns a list of project_managers the user is planned for in a time period
     } {
 	set project_ids [planning_item::get_projects -user_id $user_id -start_date $start_date -end_date $end_date]
-	set project_manager_ids [db_list project_mangers "select distinct object_id_two from acs_rels rel, im_biz_object_members bom where rel.rel_id = bom.rel_id and bom.object_role_id = 1301 and object_id_one in ([template::util::tcl_to_sql_list $project_ids])"]
+	if {"" == $project_ids} {
+	    return ""
+	} else {
+	    return project_manager_ids [db_list project_mangers "select distinct object_id_two from acs_rels rel, im_biz_object_members bom where rel.rel_id = bom.rel_id and bom.object_role_id = 1301 and object_id_one in ([template::util::tcl_to_sql_list $project_ids])"]
+	}
     }
 
 }
