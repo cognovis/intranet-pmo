@@ -366,13 +366,13 @@ namespace eval planning_item {
         if {"" == $start_date} {
 	    set start_date "now()"
 	} else {
-	    set start_date "to_date($start_date,'YYYY-MM-DD')"
+	    set start_date "to_date('$start_date','YYYY-MM-DD')"
 	}
 
         if {"" == $end_date} {
 	    set end_date "to_date('2099-12-31','YYYY-MM-DD')"
 	} else {
-	    set end_date "to_date($end_date,'YYYY-MM-DD')"
+	    set end_date "to_date('$end_date','YYYY-MM-DD')"
 	}
 	
 	return [db_list planned_projects "select distinct item_project_phase_id 
