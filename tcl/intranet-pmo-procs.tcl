@@ -357,25 +357,25 @@ namespace eval planning_item {
     }
 
     ad_proc -public get_projects {
-	-user_id
-	{-start_date ""}
-	{-end_date ""}
+        -user_id
+        {-start_date ""}
+        {-end_date ""}
     } {
-	Returns a list of projects the user is planned for in a time period
+        Returns a list of projects the user is planned for in a time period
     } {
         if {"" == $start_date} {
-	    set start_date "now()"
-	} else {
-	    set start_date "to_date('$start_date','YYYY-MM-DD')"
-	}
+	        set start_date "date_trunc('month', current_date)"
+        } else {
+	        set start_date "date_trunc('month', to_date('$start_date','YYYY-MM-DD'))"
+        }
 
         if {"" == $end_date} {
-	    set end_date "to_date('2099-12-31','YYYY-MM-DD')"
-	} else {
-	    set end_date "to_date('$end_date','YYYY-MM-DD')"
-	}
+	        set end_date "to_date('2099-12-01','YYYY-MM-DD'))"
+        } else {
+	        set end_date "date_trunc('month', to_date('$end_date','YYYY-MM-DD'))"
+        }
 	
-	return [db_list planned_projects "select distinct item_project_phase_id 
+        return [db_list planned_projects "select distinct item_project_phase_id 
             from im_planning_items 
             where item_project_member_id = :user_id
             and item_date >= $start_date
@@ -383,18 +383,18 @@ namespace eval planning_item {
     }
 
     ad_proc -public get_project_managers {
-	-user_id
-	{-start_date ""}
-	{-end_date ""}
+        -user_id
+        {-start_date ""}
+	    {-end_date ""}
     } {
-	Returns a list of project_managers the user is planned for in a time period
+        Returns a list of project_managers the user is planned for in a time period
     } {
-	set project_ids [planning_item::get_projects -user_id $user_id -start_date $start_date -end_date $end_date]
-	if {"" == $project_ids} {
-	    return ""
-	} else {
-	    return project_manager_ids [db_list project_mangers "select distinct object_id_two from acs_rels rel, im_biz_object_members bom where rel.rel_id = bom.rel_id and bom.object_role_id = 1301 and object_id_one in ([template::util::tcl_to_sql_list $project_ids])"]
-	}
+        set project_ids [planning_item::get_projects -user_id $user_id -start_date $start_date -end_date $end_date]
+        if {"" == $project_ids} {
+	        return ""
+        } else {
+	        return [db_list project_mangers "select distinct object_id_two from acs_rels rel, im_biz_object_members bom where rel.rel_id = bom.rel_id and bom.object_role_id = 1301 and object_id_one in ([template::util::tcl_to_sql_list $project_ids])"]
+        }
     }
 
 }
