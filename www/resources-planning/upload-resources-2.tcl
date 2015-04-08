@@ -111,11 +111,11 @@ if {$current_month eq ""} {
 }
 set last_month [lindex $csv_header_fields end]
 set months [list]
-while {$current_month<$last_month} {
+while {$current_month<=$last_month} {
     lappend months $current_month
     set current_month [db_string current_month "select to_char(to_date(:current_month,'YYMM') + interval '1 month','YYMM') from dual"]
 }
-    
+
 # ---------------------------------------------------------------
 # Render Page Header
 # ---------------------------------------------------------------
@@ -157,117 +157,124 @@ foreach csv_line_fields $values_list_of_lists {
 
     for {set j 0} {$j < $csv_header_len} {incr j} {
 
-	set var_name [string trim [lindex $csv_header_fields $j]]
-	set var_name [string tolower $var_name]
-	set var_name [string map -nocase {" " "_" "\"" "" "'" "" "/" "_" "-" "_"} $var_name]
-	set var_name [im_mangle_unicode_accents $var_name]
-
-	# Deal with German Outlook exports
-	set var_name [im_upload_cvs_translate_varname $var_name]
-
-	lappend var_name_list $var_name
-	
-	set var_value [string trim [lindex $csv_line_fields $j]]
-	set var_value [string map -nocase {"\"" "" "\{" "(" "\}" ")" "\[" "(" "\]" ")"} $var_value]
-	if {[string equal "NULL" $var_value]} { set var_value ""}
-	append pretty_field_header "<td>$var_name</td>\n"
-	append pretty_field_body "<td>$var_value</td>\n"
-
-#	append pretty_field_string "$var_name\t\t$var_value\n"
-#	ns_log notice "upload-contacts: [lindex $csv_header_fields $j] => $var_name => $var_value"	
-
-	set cmd "set $var_name \"$var_value\""
-#	ns_log Notice "upload-contacts-2: cmd=$cmd"
-	set result [eval $cmd]
+        	set var_name [string trim [lindex $csv_header_fields $j]]
+        	set var_name [string tolower $var_name]
+        	set var_name [string map -nocase {" " "_" "\"" "" "'" "" "/" "_" "-" "_"} $var_name]
+        	set var_name [im_mangle_unicode_accents $var_name]
+        
+        	# Deal with German Outlook exports
+        	set var_name [im_upload_cvs_translate_varname $var_name]
+        
+        	lappend var_name_list $var_name
+        	
+        	set var_value [string trim [lindex $csv_line_fields $j]]
+        	set var_value [string map -nocase {"\"" "" "\{" "(" "\}" ")" "\[" "(" "\]" ")"} $var_value]
+        
+        	if {[string equal "NULL" $var_value]} { set var_value ""}
+        
+        	append pretty_field_header "<td>$var_name</td>\n"
+        	append pretty_field_body "<td>$var_value</td>\n"
+        
+        #	append pretty_field_string "$var_name\t\t$var_value\n"
+        #	ns_log notice "upload-contacts: [lindex $csv_header_fields $j] => $var_name => $var_value"	
+        
+        	set cmd "set $var_name \"$var_value\""
+        #	ns_log Notice "upload-contacts-2: cmd=$cmd"
+        	set result [eval $cmd]
     }
 
     set employee_id [db_string employee "select max(employee_id) from im_employees where trim(personnel_number) = :personnel_number" -default ""]
     set project_id ""
         
     if {[exists_and_not_null project_nr] && [exists_and_not_null company_id]} {
-	set project_id [db_string project "select project_id from im_projects where project_nr = :project_nr and company_id = :company_id" -default ""]
+        	set project_id [db_string project "select project_id from im_projects where project_nr = :project_nr and company_id = :company_id" -default ""]
     }
 
     # find the employee and the project
     if {"" != $employee_id && "" != $project_id} {
-	set current_availability 0
-	set avail ""
-	foreach month $months {
-	    if {![info exists $month]} {
-#		ns_write "<li>Warning: We could not find an entry for $employee_id with personnel_number $personnel_number in $project_id for $month</li>"
-		continue
-	    }
-	    set start_date "01$month"
-	    set availability [set $month]
-	    
-	    # we need to find out if we update or insert
-	    set planning_item_id [db_string planning_item "select item_id from im_planning_items 
-            	       		  where item_date = to_date(:start_date,'DDYYMM')
-                	          and item_project_phase_id = :project_id
-        			  and item_project_member_id = :employee_id" -default ""]
-	    
-	    if {"" != $availability} {
-		# Convert to float numbers
-		regsub -all "," $availability "." availability
-		
-		# Make sure we store percentages
-		set availability [ expr $availability * 100 ]
-		
-		# Find out if we need to create the relationship
-		set current_date "01"
-		append current_date [db_string date "select to_char(now(),'YYMM') from dual"]
-		
-		if {$current_date == $start_date} {
-		    set current_availability $availability
-		}
-		
-		# Make this an effort
-		if {"" == $planning_item_id} {
-		    set planning_item_id [planning_item::new \
-					      -item_object_id $project_id \
-					      -item_project_phase_id $project_id \
-					      -item_project_member_id $employee_id \
-					      -item_type_id 73103 \
-					      -item_cost_type_id 3718 \
-					      -item_date [db_string date "select to_char(to_date(:start_date,'DDYYMM'),'YYYY-MM-DD')"] \
-					      -item_value $availability]
-		} else {
-		    db_dml update_planning_item "update im_planning_items set item_value = :availability, item_type_id = 73103 where item_id = :planning_item_id "
-		}
-		
-	    } else {
-		if {"" != $planning_item_id} {
-		    db_dml delete_planning_item "delete from im_planning_items where item_id = :planning_item_id"
-		    db_dml delete_planning_item "delete from acs_objects where object_id = :planning_item_id"
-		}
-	    }
-	}
-	
-	# Create the rel
-	if {$current_availability > 0} {
-	    # Find out if the relationship already exists
-	    set rel_id [db_string select_rel "select rel_id from acs_rels where object_id_one = :project_id and object_id_two = :employee_id" -default ""]
-	    if {"" == $rel_id} {
-		# Create the relationship for this month
-		set rel_id [im_biz_object_add_role -percentage $current_availability $employee_id $project_id 1300]
-	    } else {
-		# Update the relationship
-		db_dml update_availability "update im_biz_object_members set percentage = :current_availability where rel_id = :rel_id"
-	    }
-	} else {
-	    # Remove the relationship
-	    set rel_id [db_string select_rel "select rel_id from acs_rels where object_id_one = :project_id and object_id_two = :employee_id" -default ""]
-	    if {$rel_id ne ""} {
-		ns_log Notice "This rel $rel_id for $project_id :: $personnel_number should be removed"
-	    }
-	}
+        	set current_availability 0
+        	set avail ""
+        	
+        	foreach month $months {
+        	    if {![info exists $month]} {
+            #		ns_write "<li>Warning: We could not find an entry for $employee_id with personnel_number $personnel_number in $project_id for $month</li>"
+        	       	continue
+        	    }
+        	    set start_date "01$month"
+        	    set availability [set $month]
+        	    
+        	    # we need to find out if we update or insert
+        	    set planning_item_id [db_string planning_item "select item_id from im_planning_items 
+                    	       		  where item_date = to_date(:start_date,'DDYYMM')
+                        	          and item_project_phase_id = :project_id
+                			  and item_project_member_id = :employee_id" -default ""]
+        	    
+        	    if {"" != $availability} {
+                		# Convert to float numbers
+                		regsub -all "," $availability "." availability
+                		
+                		# Make sure we store percentages
+                		set availability [ expr $availability * 100 ]
+                		
+                		# Find out if we need to create the relationship
+                		set current_date "01"
+                		append current_date [db_string date "select to_char(now(),'YYMM') from dual"]
+                		
+                		if {$current_date == $start_date} {
+                		    set current_availability $availability
+                		}
+                		
+                		# Make this an effort
+                		if {"" == $planning_item_id} {
+                		    set planning_item_id [planning_item::new \
+                					      -item_object_id $project_id \
+                					      -item_project_phase_id $project_id \
+                					      -item_project_member_id $employee_id \
+                					      -item_type_id 73103 \
+                					      -item_cost_type_id 3718 \
+                					      -item_date [db_string date "select to_char(to_date(:start_date,'DDYYMM'),'YYYY-MM-DD')"] \
+                					      -item_value $availability]
+                		} else {
+                		    db_dml update_planning_item "update im_planning_items set item_value = :availability, item_type_id = 73103 where item_id = :planning_item_id "
+                		}
+                		
+                } else {
+                		if {"" != $planning_item_id} {
+                		    db_dml delete_planning_item "delete from im_planning_items where item_id = :planning_item_id"
+                		    db_dml delete_planning_item "delete from acs_objects where object_id = :planning_item_id"
+                		}
+        	    }
+        	}
+        	
+        	# Create the rel
+        	if {$current_availability > 0} {
+        	    # Find out if the relationship already exists
+        	    set rel_id [db_string select_rel "select rel_id from acs_rels where object_id_one = :project_id and object_id_two = :employee_id" -default ""]
+        	    if {"" == $rel_id} {
+            	       # Create the relationship for this month
+                	   set rel_id [im_biz_object_add_role -percentage $current_availability $employee_id $project_id 1300]
+        	    } else {
+                		# Update the relationship
+                		db_dml update_availability "update im_biz_object_members set percentage = :current_availability where rel_id = :rel_id"
+        	    }
+        	} else {
+        	    # Remove the relationship
+        	    set rel_id [db_string select_rel "select rel_id from acs_rels where object_id_one = :project_id and object_id_two = :employee_id" -default ""]
+        	    if {$rel_id ne ""} {
+            	    set project_url [export_vars -base "/intranet/projects/view" -url {project_id}]
+            	    set employee_url [export_vars -base "/intranet/users/view" -url {{user_id $employee_id}}]
+            	    set employee_name [im_name_from_id $employee_id]
+            	    set project_name [im_name_from_id $project_id]
+                ns_write "This rel $rel_id for <a href='$project_url'>$project_name</a> for <a href='$employee_url'>$employee_name</a> should be removed<br />"
+        	    }
+        	}
     } else {
-	ds_comment "Can't add personnel $personnel_number for Employee $employee_id in Project $project_id :: $project_nr"
+        	ns_write "Can't add personnel $personnel_number for Employee $employee_id in Project $project_id :: $project_nr <br />"
     }
 }
 
 
 # ------------------------------------------------------------
 # Render Report Footer
-ns_write "We are finished. You can <a href=\"index\">Return</a> now."
+ns_write "We are finished. You can <a href=\"index\">Return</a> now. We processed $months"
 ns_write [im_footer]
