@@ -35,7 +35,8 @@ if {0 == $project_id} {
 
 # Use the highest (latest) item_id, just in case.. we have more from
 # somewhere else, altough this should not happen, to be honest.....
-set item_id [db_string get_item "select max(item_id) from cr_items where parent_id = :response_id and content_type = 'content_revision'" -default ""]
+#set item_id [db_string get_item "select max(item_id) from cr_items where parent_id = :response_id and content_type = 'content_revision'" -default ""]
+set item_id ""
 
 if {$item_id ne ""} {
     ad_returnredirect "/file/$item_id"
@@ -123,31 +124,32 @@ set questions_sql "
 
 db_foreach response $questions_sql {
     set ${question_id}_response "$choice $boolean_answer $clob_answer $number_answer $varchar_answer $date_answer"
-
+    ds_comment "$question_id"
 }
 
-foreach question_id [list 27931 27932 27933 27934] {
+
+foreach question_id [list 27931 27932 27933 32055] {
 
     
     set answer [string trim [set ${question_id}_response]]
     set answer [lang::util::localize $answer en_US]
-    ns_log Notice "$question_id :: $answer"
+    ds_comment "$question_id :: $answer"
     switch $answer {
-        Yellow {
+        Yellow - Gelb {
             set ${question_id}_response {
                 <draw:frame draw:style-name="fr2" draw:name="Grafik2" text:anchor-type="as-char" svg:width="0.681cm" svg:height="1.799cm" draw:z-index="5">
                 <draw:image xlink:href="Pictures/10000000000000190000004208AE16B6.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
                 </draw:frame>
             }
         }
-        Red {
+        Red - Rot {
             set ${question_id}_response {
                 <draw:frame draw:style-name="fr2" draw:name="Grafik1" text:anchor-type="as-char" svg:width="0.681cm" svg:height="1.739cm" draw:z-index="2">
                 <draw:image xlink:href="Pictures/100000000000001A0000004408B1848C.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
                 </draw:frame>
             }
         }
-        Green {
+        Green - Grün {
             set ${question_id}_response {
                 <draw:frame draw:style-name="fr2" draw:name="Grafik3" text:anchor-type="as-char" svg:width="0.681cm" svg:height="1.739cm" draw:z-index="3">
                 <draw:image xlink:href="Pictures/100000000000001A0000004558E63332.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
@@ -161,7 +163,6 @@ foreach question_id [list 27931 27932 27933 27934] {
 }
 
 set aufwand_xml ""
-
 
 # Get the tasks
 set task_ids_sql [im_project_subproject_ids -project_id $project_id -type "task" -sql]
@@ -286,11 +287,12 @@ set total_remaining_budget [expr $budget_hours - $total_logged_hours]
 
 
 # Initialize
-set invest_ist [db_string invest_costs "select sum(amount) from sap_invoices where sap_project_nr = (select sap_project_nr from im_projects where project_id = :project_id) and konto <3000" -default ""]
+#set invest_ist [db_string invest_costs "select sum(amount) from sap_invoices where sap_project_nr = (select sap_project_nr from im_projects where project_id = :project_id) and konto <3000" -default ""]
+set invest_ist [db_string invest_costs "select sum(amount) from im_costs where project_id = :project_id and cost_type_id = [im_cost_type_bill]" -default ""]
 if {$invest_ist eq ""} {set invest_ist 0}
 
-set single_ist [db_string single_costs "select sum(amount) from sap_invoices where sap_project_nr = (select sap_project_nr from im_projects where project_id = :project_id) and konto >=3000" -default ""]
-if {$single_ist eq ""} {set single_ist 0}
+#set single_ist [db_string single_costs "select sum(amount) from sap_invoices where sap_project_nr = (select sap_project_nr from im_projects where project_id = :project_id) and konto >=3000" -default ""]
+set single_ist 0
 
 db_1row budget_plan_information "select coalesce(budget,0) as budget_latest, coalesce(investment_costs,0) as investment_cost_latest, coalesce(single_costs,0) as single_cost_latest from im_budgets where budget_id = (select latest_revision from cr_items where item_id = :budget_id)"
 

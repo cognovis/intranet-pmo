@@ -10,26 +10,15 @@ set revision_id [content::item::get_best_revision -item_id $budget_id]
 
 db_1row budget_info "select object_title as title, budget as project_budget, budget_hours as project_budget_hours from im_budgetsx where budget_id = :revision_id"
 
-# ----------------- 1 Table Budget Costs HTML
-set budget_cost_html "
-    <table with=\"100%\">
-      <tr class=rowtitle>
-        <td class=rowtitle colspan=2 align=center>[_ intranet-pmo.Budget]</td>"
+
 
 # get the project list
 set project_budget_currency "EUR"
 
 array set subtotals [im_cost_update_project_cost_cache $project_id]
 
-append budget_cost_html "</tr>\n<tr>\n<td>[_ intranet-core.Project_Budget]</td>\n"
-append budget_cost_html "<td align=right>+ $project_budget $project_budget_currency</td>\n"
-
-append budget_cost_html "</tr>\n<tr>\n<td>[_ intranet-cost.Provider_Bills]</td>\n"
 set provider_bills $subtotals([im_cost_type_bill])
-append budget_cost_html "<td align=right>- $provider_bills $project_budget_currency</td>\n"
-
-append budget_cost_html "</tr>\n<tr>\n<td>[_ intranet-pmo.Cost_Estimates]</td>\n"
-
+set remaining_actual_budget [expr $project_budget - $provider_bills]
 
 # Set Cost Estimates
 set cost_ids [db_list costs {select latest_revision from cr_items where parent_id = :budget_id and content_type = 'im_budget_cost'}]
@@ -43,13 +32,8 @@ foreach revision_id $cost_ids {
     }
 }
 set cost_estimates [expr $cost_estimates - $provider_bills]
-append budget_cost_html "<td align=right>- $cost_estimates $project_budget_currency</td>\n"
+set remaining_planned_budget [expr $project_budget - $cost_estimates]
 
-
-set remaining_budget [expr $project_budget - $provider_bills - $cost_estimates]
-append budget_cost_html "</tr>\n<tr>\n<td><b>[_ intranet-pmo.Remaining_Budget]</b></td>\n"
-append budget_cost_html "<td align=right><b>$remaining_budget $project_budget_currency</b></td>\n"
-append budget_cost_html "</tr>\n</table>\n"
 
 
 
@@ -82,7 +66,7 @@ set logged_hours_total [db_string logged_hours "
 			where h.project_id in ($project_ids_sql,$task_ids_sql)
 " -default 0]
 
-db_1row hours "select coalesce(sum(remaining_hours),0) as remaining_hours_total,
+db_1row hours "select coalesce(sum(remaining_hours),0) as remaining_hours,
        coalesce(sum(planned_units),0) as planned 
     from (select planned_units,
             (planned_units * (100-coalesce(percent_completed,0)) / 100) as remaining_hours
@@ -94,6 +78,7 @@ db_1row hours "select coalesce(sum(remaining_hours),0) as remaining_hours_total,
 # Get the budgeted_hours
 set hour_ids [db_list hours {select latest_revision from cr_items where parent_id = :budget_id and content_type = 'im_budget_hour'}]
 set budgeted_hours 0
+ds_comment "hour_idsL:: $hour_ids"
 foreach revision_id $hour_ids {
     db_1row hour_info "select object_title as title, hour_id, department_id, hours, item_id, approved_p from im_budget_hoursx where hour_id = :revision_id"
     incr budgeted_hours $hours
@@ -101,7 +86,8 @@ foreach revision_id $hour_ids {
 
 # We reduce the budgeted_hours if they are already showing up in the
 # planned tasks.
-set budgeted_hours [expr $budgeted_hours - $planned]
+set remaining_planned_hours [expr $budgeted_hours - $planned]
 
 set logged_hours_total [im_timesheet_hours_sum -project_id $project_id]
-set remaining_budget_hours [expr $project_budget_hours - $logged_hours_total - $remaining_hours_total - $budgeted_hours]
+set remaining_hours_total [expr $project_budget_hours - $logged_hours_total - $remaining_hours]
+set remaining_budget_hours [expr $project_budget_hours - $budgeted_hours]
