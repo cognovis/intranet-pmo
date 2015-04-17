@@ -1,0 +1,4 @@
+In order to update the statusbericht, run
+
+zip -u ../statusbericht.odt content.xml
+zip -u ../statusbericht.odt styles.xml

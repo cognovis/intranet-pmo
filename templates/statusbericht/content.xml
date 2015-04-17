@@ -1,0 +1,958 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<office:document-content xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" office:version="1.2" grddl:transformation="http://docs.oasis-open.org/office/1.2/xslt/odf2rdf.xsl">
+	<office:scripts/>
+	<office:font-face-decls>
+		<style:font-face style:name="Wingdings" svg:font-family="Wingdings" style:font-pitch="variable" style:font-charset="x-symbol"/>
+		<style:font-face style:name="Symbol" svg:font-family="Symbol" style:font-family-generic="roman" style:font-pitch="variable" style:font-charset="x-symbol"/>
+		<style:font-face style:name="Lucida Sans1" svg:font-family="'Lucida Sans'"/>
+		<style:font-face style:name="Courier New" svg:font-family="'Courier New'" style:font-family-generic="modern"/>
+		<style:font-face style:name="CG Times (W1)" svg:font-family="'CG Times (W1)', 'Times New Roman'" style:font-family-generic="roman" style:font-pitch="variable"/>
+		<style:font-face style:name="Times New Roman" svg:font-family="'Times New Roman'" style:font-family-generic="roman" style:font-pitch="variable"/>
+		<style:font-face style:name="Arial" svg:font-family="Arial" style:font-family-generic="swiss" style:font-pitch="variable"/>
+		<style:font-face style:name="Tahoma" svg:font-family="Tahoma" style:font-family-generic="swiss" style:font-pitch="variable"/>
+		<style:font-face style:name="Lucida Sans" svg:font-family="'Lucida Sans'" style:font-family-generic="system" style:font-pitch="variable"/>
+		<style:font-face style:name="SimSun" svg:font-family="SimSun" style:font-family-generic="system" style:font-pitch="variable"/>
+	</office:font-face-decls>
+	<office:automatic-styles>
+		<style:style style:name="Tabelle1" style:family="table">
+			<style:table-properties style:width="16.933cm" table:align="left" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle1.A" style:family="table-column">
+			<style:table-column-properties style:column-width="3.789cm"/>
+		</style:style>
+		<style:style style:name="Tabelle1.B" style:family="table-column">
+			<style:table-column-properties style:column-width="0.288cm"/>
+		</style:style>
+		<style:style style:name="Tabelle1.C" style:family="table-column">
+			<style:table-column-properties style:column-width="0.871cm"/>
+		</style:style>
+		<style:style style:name="Tabelle1.D" style:family="table-column">
+			<style:table-column-properties style:column-width="0.386cm"/>
+		</style:style>
+		<style:style style:name="Tabelle1.E" style:family="table-column">
+			<style:table-column-properties style:column-width="1.983cm"/>
+		</style:style>
+		<style:style style:name="Tabelle1.G" style:family="table-column">
+			<style:table-column-properties style:column-width="1.145cm"/>
+		</style:style>
+		<style:style style:name="Tabelle1.I" style:family="table-column">
+			<style:table-column-properties style:column-width="2.732cm"/>
+		</style:style>
+		<style:style style:name="Tabelle1.J" style:family="table-column">
+			<style:table-column-properties style:column-width="0.219cm"/>
+		</style:style>
+		<style:style style:name="Tabelle1.K" style:family="table-column">
+			<style:table-column-properties style:column-width="0.282cm"/>
+		</style:style>
+		<style:style style:name="Tabelle1.L" style:family="table-column">
+			<style:table-column-properties style:column-width="2.066cm"/>
+		</style:style>
+		<style:style style:name="Tabelle1.M" style:family="table-column">
+			<style:table-column-properties style:column-width="0.25cm"/>
+		</style:style>
+		<style:style style:name="Tabelle1.N" style:family="table-column">
+			<style:table-column-properties style:column-width="2.348cm"/>
+		</style:style>
+		<style:style style:name="Tabelle1.1" style:family="table-row">
+			<style:table-row-properties style:min-row-height="0.226cm" style:keep-together="true" fo:keep-together="auto"/>
+		</style:style>
+		<style:style style:name="Tabelle1.A1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="0.035cm solid #000000" fo:border-right="none" fo:border-top="0.035cm solid #000000" fo:border-bottom="none" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle1.F1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="bottom" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="none" fo:border-right="none" fo:border-top="0.035cm solid #000000" fo:border-bottom="none" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle1.G1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="none" fo:border-right="none" fo:border-top="0.035cm solid #000000" fo:border-bottom="none" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle1.N1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="none" fo:border-right="0.035cm solid #000000" fo:border-top="0.035cm solid #000000" fo:border-bottom="none" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle1.2" style:family="table-row">
+			<style:table-row-properties style:row-height="0.443cm" style:keep-together="true" fo:keep-together="auto"/>
+		</style:style>
+		<style:style style:name="Tabelle1.A2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="bottom" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="0.035cm solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.018cm solid #000000" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle1.F2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="bottom" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border="none" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle1.G2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="bottom" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="none" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.018cm solid #000000" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle1.L2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="bottom" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="none" fo:border-right="0.035cm solid #000000" fo:border-top="none" fo:border-bottom="0.018cm solid #000000" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle1.3" style:family="table-row">
+			<style:table-row-properties style:row-height="0.101cm" style:keep-together="true" fo:keep-together="auto"/>
+		</style:style>
+		<style:style style:name="Tabelle1.A3" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="0.035cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="none" fo:border-bottom="none" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle1.4" style:family="table-row">
+			<style:table-row-properties style:row-height="0.3cm" style:keep-together="true" fo:keep-together="auto"/>
+		</style:style>
+		<style:style style:name="Tabelle1.A4" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="bottom" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="0.035cm solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="none" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle1.L4" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="bottom" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="none" fo:border-right="0.035cm solid #000000" fo:border-top="none" fo:border-bottom="none" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle1.5" style:family="table-row">
+			<style:table-row-properties style:row-height="0.407cm" style:keep-together="true" fo:keep-together="auto"/>
+		</style:style>
+		<style:style style:name="Tabelle1.A6" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="0.035cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="none" fo:border-bottom="0.035cm solid #000000" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle2" style:family="table">
+			<style:table-properties style:width="16.933cm" table:align="left" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle2.A" style:family="table-column">
+			<style:table-column-properties style:column-width="4.075cm"/>
+		</style:style>
+		<style:style style:name="Tabelle2.B" style:family="table-column">
+			<style:table-column-properties style:column-width="4.269cm"/>
+		</style:style>
+		<style:style style:name="Tabelle2.C" style:family="table-column">
+			<style:table-column-properties style:column-width="4.329cm"/>
+		</style:style>
+		<style:style style:name="Tabelle2.D" style:family="table-column">
+			<style:table-column-properties style:column-width="4.262cm"/>
+		</style:style>
+		<style:style style:name="Tabelle2.1" style:family="table-row">
+			<style:table-row-properties style:row-height="0.847cm" style:keep-together="true" fo:keep-together="auto"/>
+		</style:style>
+		<style:style style:name="Tabelle2.A1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="0.035cm solid #000000" fo:border-right="none" fo:border-top="0.035cm solid #000000" fo:border-bottom="0.035cm solid #000000" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle2.D1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border="0.035cm solid #000000" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle2.2" style:family="table-row">
+			<style:table-row-properties style:min-row-height="1.905cm" style:keep-together="true" fo:keep-together="auto"/>
+		</style:style>
+		<style:style style:name="Tabelle2.A2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="0.035cm solid #000000" fo:border-right="none" fo:border-top="0.035cm solid #000000" fo:border-bottom="0.035cm solid #000000" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle2.B2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="top" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="0.035cm solid #000000" fo:border-right="none" fo:border-top="0.035cm solid #000000" fo:border-bottom="0.035cm solid #000000" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle2.D2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="top" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border="0.035cm solid #000000" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle2.3" style:family="table-row">
+			<style:table-row-properties style:min-row-height="0.224cm" style:keep-together="true" fo:keep-together="auto"/>
+		</style:style>
+		<style:style style:name="Tabelle2.A3" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="top" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="0.035cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="0.035cm solid #000000" fo:border-bottom="none" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle2.4" style:family="table-row">
+			<style:table-row-properties style:row-height="1.302cm" style:keep-together="true" fo:keep-together="auto"/>
+		</style:style>
+		<style:style style:name="Tabelle2.A4" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="top" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="0.035cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="none" fo:border-bottom="0.018cm solid #000000" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle2.5" style:family="table-row">
+			<style:table-row-properties style:row-height="0.286cm" style:keep-together="true" fo:keep-together="auto"/>
+		</style:style>
+		<style:style style:name="Tabelle2.A5" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="bottom" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="0.035cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="0.018cm solid #000000" fo:border-bottom="none" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle2.6" style:family="table-row">
+			<style:table-row-properties style:row-height="1.282cm" style:keep-together="true" fo:keep-together="auto"/>
+		</style:style>
+		<style:style style:name="Tabelle2.A6" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="top" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="0.035cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="none" fo:border-bottom="0.002cm solid #000000" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle2.7" style:family="table-row">
+			<style:table-row-properties style:min-row-height="0.312cm" style:keep-together="true" fo:keep-together="auto"/>
+		</style:style>
+		<style:style style:name="Tabelle2.A7" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="top" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="0.035cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="0.002cm solid #000000" fo:border-bottom="none" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle2.8" style:family="table-row">
+			<style:table-row-properties style:row-height="1.291cm" style:keep-together="true" fo:keep-together="auto"/>
+		</style:style>
+		<style:style style:name="Tabelle2.9" style:family="table-row">
+			<style:table-row-properties style:min-row-height="0.295cm" style:keep-together="true" fo:keep-together="auto"/>
+		</style:style>
+		<style:style style:name="Tabelle2.10" style:family="table-row">
+			<style:table-row-properties style:row-height="1.251cm" style:keep-together="true" fo:keep-together="auto"/>
+		</style:style>
+		<style:style style:name="Tabelle2.11" style:family="table-row">
+			<style:table-row-properties style:row-height="0.266cm" style:keep-together="true" fo:keep-together="auto"/>
+		</style:style>
+		<style:style style:name="Tabelle2.12" style:family="table-row">
+			<style:table-row-properties style:row-height="1.33cm" style:keep-together="true" fo:keep-together="auto"/>
+		</style:style>
+		<style:style style:name="Tabelle2.A12" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="top" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="0.035cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="none" fo:border-bottom="0.035cm solid #000000" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle3" style:family="table">
+			<style:table-properties style:width="16.933cm" table:align="left" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle3.A" style:family="table-column">
+			<style:table-column-properties style:column-width="16.933cm"/>
+		</style:style>
+		<style:style style:name="Tabelle3.1" style:family="table-row">
+			<style:table-row-properties style:min-row-height="0.623cm" style:keep-together="true" fo:keep-together="auto"/>
+		</style:style>
+		<style:style style:name="Tabelle3.A1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="0.035cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="0.035cm solid #000000" fo:border-bottom="0.002cm solid #000000" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle3.2" style:family="table-row">
+			<style:table-row-properties style:min-row-height="2.087cm" style:keep-together="true" fo:keep-together="auto"/>
+		</style:style>
+		<style:style style:name="Tabelle3.A2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="top" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="0.035cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="0.002cm solid #000000" fo:border-bottom="0.035cm solid #000000" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle4" style:family="table">
+			<style:table-properties style:width="16.879cm" table:align="left" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle4.A" style:family="table-column">
+			<style:table-column-properties style:column-width="3.127cm"/>
+		</style:style>
+		<style:style style:name="Tabelle4.B" style:family="table-column">
+			<style:table-column-properties style:column-width="2.500cm"/>
+		</style:style>
+		<style:style style:name="Tabelle4.C" style:family="table-column">
+			<style:table-column-properties style:column-width="2.501cm"/>
+		</style:style>
+		<style:style style:name="Tabelle4.D" style:family="table-column">
+			<style:table-column-properties style:column-width="2.75cm"/>
+		</style:style>
+		<style:style style:name="Tabelle4.E" style:family="table-column">
+			<style:table-column-properties style:column-width="3.25cm"/>
+		</style:style>
+		<style:style style:name="Tabelle4.1" style:family="table-row">
+			<style:table-row-properties style:keep-together="true" fo:keep-together="auto"/>
+		</style:style>
+		<style:style style:name="Tabelle4.A1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="top" fo:padding-left="0.191cm" fo:padding-right="0.191cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="none" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.018cm solid #000000" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle4.B1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="top" fo:padding-left="0.191cm" fo:padding-right="0.191cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="0.018cm solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.018cm solid #000000" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle4.A2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="top" fo:padding-left="0.191cm" fo:padding-right="0.191cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="none" fo:border-right="none" fo:border-top="0.018cm solid #000000" fo:border-bottom="0.018cm solid #000000" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle4.B2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="top" fo:padding-left="0.191cm" fo:padding-right="0.191cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="0.018cm solid #000000" fo:border-right="none" fo:border-top="0.018cm solid #000000" fo:border-bottom="0.018cm solid #000000" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle4.A5" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="top" fo:padding-left="0.191cm" fo:padding-right="0.191cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="none" fo:border-right="none" fo:border-top="0.018cm solid #000000" fo:border-bottom="none" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle4.B5" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="top" fo:padding-left="0.191cm" fo:padding-right="0.191cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="0.018cm solid #000000" fo:border-right="none" fo:border-top="0.018cm solid #000000" fo:border-bottom="none" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle5" style:family="table">
+			<style:table-properties style:width="16.933cm" table:align="left" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle5.A" style:family="table-column">
+			<style:table-column-properties style:column-width="16.933cm"/>
+		</style:style>
+		<style:style style:name="Tabelle5.1" style:family="table-row">
+			<style:table-row-properties style:min-row-height="0.545cm" style:keep-together="true" fo:keep-together="auto"/>
+		</style:style>
+		<style:style style:name="Tabelle5.A1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="0.035cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="0.035cm solid #000000" fo:border-bottom="0.002cm solid #000000" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle5.2" style:family="table-row">
+			<style:table-row-properties style:min-row-height="2.087cm" style:keep-together="true" fo:keep-together="auto"/>
+		</style:style>
+		<style:style style:name="Tabelle5.A2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="top" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="0.035cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="0.002cm solid #000000" fo:border-bottom="0.035cm solid #000000" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle6" style:family="table">
+			<style:table-properties style:width="16.637cm" table:align="left" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle6.A" style:family="table-column">
+			<style:table-column-properties style:column-width="3.127cm"/>
+		</style:style>
+		<style:style style:name="Tabelle6.B" style:family="table-column">
+			<style:table-column-properties style:column-width="2.5cm"/>
+		</style:style>
+		<style:style style:name="Tabelle6.C" style:family="table-column">
+			<style:table-column-properties style:column-width="2.5cm"/>
+		</style:style>
+		<style:style style:name="Tabelle6.D" style:family="table-column">
+			<style:table-column-properties style:column-width="4.5cm"/>
+		</style:style>
+		<style:style style:name="Tabelle6.E" style:family="table-column">
+			<style:table-column-properties style:column-width="4.25cm"/>
+		</style:style>
+		<style:style style:name="Tabelle6.F" style:family="table-column">
+			<style:table-column-properties style:column-width="2.912cm"/>
+		</style:style>
+		<style:style style:name="Tabelle6.G" style:family="table-column">
+			<style:table-column-properties style:column-width="2.596cm"/>
+		</style:style>
+		<style:style style:name="Tabelle6.1" style:family="table-row">
+			<style:table-row-properties style:keep-together="true" fo:keep-together="auto"/>
+		</style:style>
+		<style:style style:name="Tabelle6.A1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="top" fo:padding-left="0.191cm" fo:padding-right="0.191cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="none" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.018cm solid #000000" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle6.B1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="top" fo:padding-left="0.191cm" fo:padding-right="0.191cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="0.018cm solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.018cm solid #000000" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle6.A2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="top" fo:padding-left="0.191cm" fo:padding-right="0.191cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="none" fo:border-right="none" fo:border-top="0.018cm solid #000000" fo:border-bottom="0.018cm solid #000000" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle6.B2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="top" fo:padding-left="0.191cm" fo:padding-right="0.191cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="0.018cm solid #000000" fo:border-right="none" fo:border-top="0.018cm solid #000000" fo:border-bottom="0.018cm solid #000000" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle6.A4" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="top" fo:padding-left="0.191cm" fo:padding-right="0.191cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="none" fo:border-right="none" fo:border-top="0.018cm solid #000000" fo:border-bottom="none" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="Tabelle6.B4" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="top" fo:padding-left="0.191cm" fo:padding-right="0.191cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="0.018cm solid #000000" fo:border-right="none" fo:border-top="0.018cm solid #000000" fo:border-bottom="none" style:writing-mode="lr-tb"/>
+		</style:style>
+		<style:style style:name="P1" style:family="paragraph" style:parent-style-name="_5f_Kopfüberschrift">
+			<style:paragraph-properties fo:margin-left="-0.12cm" fo:margin-right="-0.873cm" fo:margin-top="0.212cm" fo:margin-bottom="0cm" fo:text-indent="0cm" style:auto-text-indent="false" style:snap-to-layout-grid="false"/>
+		</style:style>
+		<style:style style:name="P2" style:family="paragraph" style:parent-style-name="_5f_vorg.FaxText">
+			<style:text-properties fo:font-size="3pt" style:font-size-asian="3pt"/>
+		</style:style>
+		<style:style style:name="P3" style:family="paragraph" style:parent-style-name="_5f_vorg.FaxText" style:master-page-name="Standard">
+			<style:paragraph-properties style:page-number="auto"/>
+			<style:text-properties fo:font-size="3pt" style:font-size-asian="3pt"/>
+		</style:style>
+		<style:style style:name="P4" style:family="paragraph" style:parent-style-name="Header">
+			<style:paragraph-properties fo:text-align="end" style:justify-single-word="false" style:snap-to-layout-grid="false"/>
+			<style:text-properties fo:language="none" fo:country="none" style:language-asian="none" style:country-asian="none"/>
+		</style:style>
+		<style:style style:name="P5" style:family="paragraph" style:parent-style-name="Header">
+			<style:text-properties fo:font-size="2pt" style:font-size-asian="2pt"/>
+		</style:style>
+		<style:style style:name="P6" style:family="paragraph" style:parent-style-name="Footer">
+			<style:paragraph-properties>
+				<style:tab-stops>
+					<style:tab-stop style:position="8.502cm" style:type="center"/>
+					<style:tab-stop style:position="17.004cm" style:type="right"/>
+				</style:tab-stops>
+			</style:paragraph-properties>
+		</style:style>
+		<style:style style:name="P7" style:family="paragraph" style:parent-style-name="Footer">
+			<style:paragraph-properties>
+				<style:tab-stops>
+					<style:tab-stop style:position="16.503cm" style:type="right"/>
+				</style:tab-stops>
+			</style:paragraph-properties>
+		</style:style>
+		<style:style style:name="P8" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties style:snap-to-layout-grid="false"/>
+		</style:style>
+		<style:style style:name="P9" style:family="paragraph" style:parent-style-name="Standard">
+			<style:text-properties fo:font-size="7pt" style:font-size-asian="7pt" style:font-size-complex="7pt"/>
+		</style:style>
+		<style:style style:name="P10" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties style:snap-to-layout-grid="false"/>
+			<style:text-properties fo:font-size="7pt" style:font-size-asian="7pt" style:font-size-complex="7pt"/>
+		</style:style>
+		<style:style style:name="P11" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties style:snap-to-layout-grid="false"/>
+			<style:text-properties fo:font-size="7pt" fo:font-weight="bold" style:font-size-asian="7pt" style:font-weight-asian="bold" style:font-size-complex="7pt" style:font-weight-complex="bold"/>
+		</style:style>
+		<style:style style:name="P12" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties style:snap-to-layout-grid="false"/>
+			<style:text-properties style:font-size-complex="11pt"/>
+		</style:style>
+		<style:style style:name="P13" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties style:snap-to-layout-grid="false"/>
+			<style:text-properties fo:font-size="10pt" style:font-size-asian="10pt"/>
+		</style:style>
+		<style:style style:name="P14" style:family="paragraph" style:parent-style-name="Standard">
+			<style:text-properties fo:font-size="3pt" style:font-size-asian="3pt" style:font-size-complex="3pt"/>
+		</style:style>
+		<style:style style:name="P15" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties style:snap-to-layout-grid="false"/>
+			<style:text-properties fo:font-size="3pt" style:font-size-asian="3pt" style:font-size-complex="3pt"/>
+		</style:style>
+		<style:style style:name="P16" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties style:snap-to-layout-grid="false"/>
+			<style:text-properties fo:font-weight="bold" style:font-weight-asian="bold" style:font-weight-complex="bold"/>
+		</style:style>
+		<style:style style:name="P17" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:line-height="115%" fo:text-align="center" style:justify-single-word="false" style:snap-to-layout-grid="false"/>
+			<style:text-properties fo:font-size="12pt" style:font-size-asian="12pt" style:font-name-complex="Arial" style:font-size-complex="9pt"/>
+		</style:style>
+		<style:style style:name="P18" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:text-align="center" style:justify-single-word="false" style:snap-to-layout-grid="false"/>
+			<style:text-properties fo:font-size="9pt" fo:font-weight="bold" style:font-size-asian="9pt" style:font-weight-asian="bold" style:font-size-complex="9pt"/>
+		</style:style>
+		<style:style style:name="P19" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:margin-left="0cm" fo:margin-right="-0.123cm" fo:text-indent="0cm" style:auto-text-indent="false" style:snap-to-layout-grid="false"/>
+			<style:text-properties fo:font-size="7pt" style:font-size-asian="7pt" style:font-size-complex="7pt"/>
+		</style:style>
+		<style:style style:name="P20" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:margin-left="0cm" fo:margin-right="-0.123cm" fo:text-indent="0cm" style:auto-text-indent="false" style:snap-to-layout-grid="false"/>
+			<style:text-properties fo:font-size="7pt" fo:font-weight="bold" style:font-size-asian="7pt" style:font-weight-asian="bold" style:font-size-complex="7pt" style:font-weight-complex="bold"/>
+		</style:style>
+		<style:style style:name="P21" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:margin-left="0cm" fo:margin-right="-0.123cm" fo:margin-top="0.035cm" fo:margin-bottom="0cm" fo:text-indent="0cm" style:auto-text-indent="false" style:snap-to-layout-grid="false"/>
+		</style:style>
+		<style:style style:name="P22" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:margin-top="0.035cm" fo:margin-bottom="0cm" style:snap-to-layout-grid="false"/>
+		</style:style>
+		<style:style style:name="P23" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:margin-top="0.035cm" fo:margin-bottom="0cm" fo:text-align="center" style:justify-single-word="false" style:snap-to-layout-grid="false"/>
+			<style:text-properties fo:language="none" fo:country="none" style:language-asian="none" style:country-asian="none" style:font-size-complex="11pt"/>
+		</style:style>
+		<style:style style:name="P24" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:margin-top="0.035cm" fo:margin-bottom="0cm" fo:text-align="center" style:justify-single-word="false" style:snap-to-layout-grid="false"/>
+			<style:text-properties fo:font-size="12pt" fo:language="none" fo:country="none" style:font-size-asian="12pt" style:language-asian="none" style:country-asian="none" style:font-name-complex="Arial" style:font-size-complex="11pt"/>
+		</style:style>
+		<style:style style:name="P25" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:margin-top="0.035cm" fo:margin-bottom="0cm"/>
+			<style:text-properties fo:font-size="7pt" style:font-size-asian="7pt" style:font-size-complex="7pt"/>
+		</style:style>
+		<style:style style:name="P26" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:margin-top="0.035cm" fo:margin-bottom="0cm" style:snap-to-layout-grid="false"/>
+			<style:text-properties fo:font-size="7pt" style:font-size-asian="7pt" style:font-size-complex="7pt"/>
+		</style:style>
+		<style:style style:name="P27" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:margin-top="0.035cm" fo:margin-bottom="0cm" fo:text-align="start" style:justify-single-word="false" style:snap-to-layout-grid="false"/>
+			<style:text-properties fo:font-size="7pt" style:font-size-asian="7pt" style:font-size-complex="7pt"/>
+		</style:style>
+		<style:style style:name="P28" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:margin-top="0.035cm" fo:margin-bottom="0cm" style:snap-to-layout-grid="false"/>
+			<style:text-properties fo:font-size="7pt" fo:font-weight="bold" style:font-size-asian="7pt" style:font-weight-asian="bold" style:font-size-complex="7pt" style:font-weight-complex="bold"/>
+		</style:style>
+		<style:style style:name="P29" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:margin-top="0.035cm" fo:margin-bottom="0cm" style:snap-to-layout-grid="false"/>
+			<style:text-properties fo:font-size="5pt" style:font-size-asian="5pt" style:font-size-complex="11pt"/>
+		</style:style>
+		<style:style style:name="P30" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:margin-top="0.035cm" fo:margin-bottom="0cm"/>
+			<style:text-properties fo:color="#ffffff" fo:font-size="5pt" style:font-size-asian="5pt" style:font-size-complex="11pt"/>
+		</style:style>
+		<style:style style:name="P31" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:margin-top="0.035cm" fo:margin-bottom="0cm" style:snap-to-layout-grid="false"/>
+			<style:text-properties fo:font-size="9pt" fo:font-weight="bold" style:font-size-asian="9pt" style:font-weight-asian="bold" style:font-size-complex="9pt"/>
+		</style:style>
+		<style:style style:name="P32" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:margin-top="0.035cm" fo:margin-bottom="0cm"/>
+			<style:text-properties fo:font-size="9pt" style:font-size-asian="9pt" style:font-size-complex="9pt"/>
+		</style:style>
+		<style:style style:name="P33" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:margin-top="0.035cm" fo:margin-bottom="0cm" style:snap-to-layout-grid="false"/>
+			<style:text-properties fo:font-size="9pt" style:font-size-asian="9pt" style:font-size-complex="9pt"/>
+		</style:style>
+		<style:style style:name="P34" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:margin-top="0.035cm" fo:margin-bottom="0cm" fo:text-align="start" style:justify-single-word="false" style:snap-to-layout-grid="false"/>
+			<style:text-properties fo:font-size="9pt" style:font-size-asian="9pt" style:font-size-complex="9pt"/>
+		</style:style>
+		<style:style style:name="P35" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:margin-top="0.035cm" fo:margin-bottom="0.035cm" style:snap-to-layout-grid="false"/>
+			<style:text-properties fo:font-size="7pt" fo:font-weight="bold" style:font-size-asian="7pt" style:font-weight-asian="bold" style:font-size-complex="7pt" style:font-weight-complex="bold"/>
+		</style:style>
+		<style:style style:name="T1" style:family="text">
+			<style:text-properties style:font-size-complex="11pt"/>
+		</style:style>
+		<style:style style:name="T2" style:family="text">
+			<style:text-properties fo:font-size="7pt" style:font-size-asian="7pt" style:font-size-complex="7pt"/>
+		</style:style>
+		<style:style style:name="T3" style:family="text">
+			<style:text-properties fo:font-size="7pt" fo:font-weight="bold" style:font-size-asian="7pt" style:font-weight-asian="bold" style:font-size-complex="7pt" style:font-weight-complex="bold"/>
+		</style:style>
+		<style:style style:name="T4" style:family="text">
+			<style:text-properties fo:font-weight="bold" style:font-weight-asian="bold"/>
+		</style:style>
+		<style:style style:name="T5" style:family="text">
+			<style:text-properties fo:font-weight="bold" style:font-weight-asian="bold" style:font-name-complex="Arial"/>
+		</style:style>
+		<style:style style:name="T6" style:family="text">
+			<style:text-properties fo:font-weight="bold" style:font-weight-asian="bold" style:font-weight-complex="bold"/>
+		</style:style>
+		<style:style style:name="T7" style:family="text">
+			<style:text-properties fo:font-size="10pt" fo:font-weight="bold" style:font-size-asian="10pt" style:font-weight-asian="bold"/>
+		</style:style>
+		<style:style style:name="T8" style:family="text">
+			<style:text-properties fo:font-size="10pt" fo:font-weight="bold" style:font-size-asian="10pt" style:font-weight-asian="bold" style:font-size-complex="11pt"/>
+		</style:style>
+		<style:style style:name="T9" style:family="text">
+			<style:text-properties fo:color="#ffffff" fo:font-size="5pt" style:font-size-asian="5pt" style:font-size-complex="11pt"/>
+		</style:style>
+		<style:style style:name="T10" style:family="text">
+			<style:text-properties fo:language="en" fo:country="GB"/>
+		</style:style>
+		<style:style style:name="T11" style:family="text">
+			<style:text-properties fo:language="en" fo:country="GB" fo:font-weight="bold" style:font-weight-asian="bold"/>
+		</style:style>
+		<style:style style:name="T12" style:family="text"/>
+		<style:style style:name="fr1" style:family="graphic" style:parent-style-name="Graphics">
+			<style:graphic-properties fo:margin-left="0cm" fo:margin-right="0cm" style:vertical-pos="top" style:vertical-rel="baseline" fo:padding-left="0.28cm" fo:padding-right="0.28cm" fo:padding-top="0.153cm" fo:padding-bottom="0.153cm" fo:border="none" style:mirror="none" fo:clip="rect(1.462cm, 0.189cm, 1.482cm, 0cm)" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
+		</style:style>
+		<style:style style:name="fr2" style:family="graphic" style:parent-style-name="Graphics">
+			<style:graphic-properties style:vertical-pos="top" style:vertical-rel="baseline" style:horizontal-pos="center" style:horizontal-rel="paragraph" style:mirror="none" fo:clip="rect(0cm, 0cm, 0cm, 0cm)" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
+		</style:style>
+		<number:date-style style:name="N36" number:automatic-order="true">
+			<number:day number:style="long"/>
+			<number:text>.</number:text>
+			<number:month number:style="long"/>
+			<number:text>.</number:text>
+			<number:year number:style="long"/>
+		</number:date-style>
+	</office:automatic-styles>
+	<office:body>
+		<office:text text:use-soft-page-breaks="true">
+			<office:forms form:automatic-focus="false" form:apply-design-mode="false"/>
+			<text:sequence-decls>
+				<text:sequence-decl text:display-outline-level="0" text:name="Illustration"/>
+				<text:sequence-decl text:display-outline-level="0" text:name="Table"/>
+				<text:sequence-decl text:display-outline-level="0" text:name="Text"/>
+				<text:sequence-decl text:display-outline-level="0" text:name="Drawing"/>
+			</text:sequence-decls>
+			<text:p text:style-name="P3"/>
+			<text:p text:style-name="P2"/>
+			<table:table table:name="Tabelle1" table:style-name="Tabelle1">
+				<table:table-column table:style-name="Tabelle1.A"/>
+				<table:table-column table:style-name="Tabelle1.B"/>
+				<table:table-column table:style-name="Tabelle1.C"/>
+				<table:table-column table:style-name="Tabelle1.D"/>
+				<table:table-column table:style-name="Tabelle1.E"/>
+				<table:table-column table:style-name="Tabelle1.B"/>
+				<table:table-column table:style-name="Tabelle1.G"/>
+				<table:table-column table:style-name="Tabelle1.B"/>
+				<table:table-column table:style-name="Tabelle1.I"/>
+				<table:table-column table:style-name="Tabelle1.J"/>
+				<table:table-column table:style-name="Tabelle1.K"/>
+				<table:table-column table:style-name="Tabelle1.L"/>
+				<table:table-column table:style-name="Tabelle1.M"/>
+				<table:table-column table:style-name="Tabelle1.N"/>
+				<table:table-row table:style-name="Tabelle1.1">
+					<table:table-cell table:style-name="Tabelle1.A1" table:number-columns-spanned="5" office:value-type="string">
+						<text:p text:style-name="P11">Projektname</text:p>
+					</table:table-cell>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:table-cell table:style-name="Tabelle1.F1" office:value-type="string">
+						<text:p text:style-name="P12"/>
+					</table:table-cell>
+					<table:table-cell table:style-name="Tabelle1.G1" table:number-columns-spanned="3" office:value-type="string">
+						<text:p text:style-name="P20">Projektleiter</text:p>
+					</table:table-cell>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:table-cell table:style-name="Tabelle1.F1" table:number-columns-spanned="2" office:value-type="string">
+						<text:p text:style-name="P12"/>
+					</table:table-cell>
+					<table:covered-table-cell/>
+					<table:table-cell table:style-name="Tabelle1.G1" office:value-type="string">
+						<text:p text:style-name="P11">Projektnummer</text:p>
+					</table:table-cell>
+					<table:table-cell table:style-name="Tabelle1.G1" office:value-type="string">
+						<text:p text:style-name="P12"/>
+					</table:table-cell>
+					<table:table-cell table:style-name="Tabelle1.N1" office:value-type="string">
+						<text:p text:style-name="P12"/>
+					</table:table-cell>
+				</table:table-row>
+				<table:table-row table:style-name="Tabelle1.2">
+					<table:table-cell table:style-name="Tabelle1.A2" table:number-columns-spanned="5" office:value-type="string">
+						<text:p text:style-name="P10">@project_name;noquote@</text:p>
+					</table:table-cell>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:table-cell table:style-name="Tabelle1.F2" office:value-type="string">
+						<text:p text:style-name="P13"/>
+					</table:table-cell>
+					<table:table-cell table:style-name="Tabelle1.G2" table:number-columns-spanned="3" office:value-type="string">
+						<text:p text:style-name="P10">@project_lead_id_deref;noquote@</text:p>
+					</table:table-cell>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:table-cell table:style-name="Tabelle1.F2" table:number-columns-spanned="2" office:value-type="string">
+						<text:p text:style-name="P13"/>
+					</table:table-cell>
+					<table:covered-table-cell/>
+					<table:table-cell table:style-name="Tabelle1.L2" table:number-columns-spanned="3" office:value-type="string">
+						<text:p text:style-name="P10">@project_nr;noquote@</text:p>
+					</table:table-cell>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+				</table:table-row>
+				<table:table-row table:style-name="Tabelle1.3">
+					<table:table-cell table:style-name="Tabelle1.A3" table:number-columns-spanned="14" office:value-type="string">
+						<text:p text:style-name="P15"/>
+					</table:table-cell>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+				</table:table-row>
+				<table:table-row table:style-name="Tabelle1.4">
+					<table:table-cell table:style-name="Tabelle1.A4" office:value-type="string">
+						<text:p text:style-name="P11">Ersteller</text:p>
+					</table:table-cell>
+					<table:table-cell table:style-name="Tabelle1.F2" office:value-type="string">
+						<text:p text:style-name="P12"/>
+					</table:table-cell>
+					<table:table-cell table:style-name="Tabelle1.F2" table:number-columns-spanned="5" office:value-type="string">
+						<text:p text:style-name="P19">
+							<text:s text:c="18"/>
+							<text:span text:style-name="T6"></text:span>
+						</text:p>
+					</table:table-cell>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:table-cell table:style-name="Tabelle1.F2" office:value-type="string">
+						<text:p text:style-name="P12"/>
+					</table:table-cell>
+					<table:table-cell table:style-name="Tabelle1.F2" table:number-columns-spanned="2" office:value-type="string">
+						<text:p text:style-name="P12"/>
+					</table:table-cell>
+					<table:covered-table-cell/>
+					<table:table-cell table:style-name="Tabelle1.F2" office:value-type="string">
+						<text:p text:style-name="P12"/>
+					</table:table-cell>
+					<table:table-cell table:style-name="Tabelle1.L4" table:number-columns-spanned="3" office:value-type="string">
+						<text:p text:style-name="P16">
+							<text:span text:style-name="T2">Berichtsdatum</text:span>
+						</text:p>
+					</table:table-cell>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+				</table:table-row>
+				<table:table-row table:style-name="Tabelle1.5">
+					<table:table-cell table:style-name="Tabelle1.A2" table:number-columns-spanned="3" office:value-type="string">
+						<text:p text:style-name="P10">@creator;noquote@</text:p>
+					</table:table-cell>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:table-cell table:style-name="Tabelle1.F2" office:value-type="string">
+						<text:p text:style-name="P13"/>
+					</table:table-cell>
+					<table:table-cell table:style-name="Tabelle1.G2" table:number-columns-spanned="5" office:value-type="string">
+						<text:p text:style-name="P10"></text:p>
+					</table:table-cell>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:table-cell table:style-name="Tabelle1.F2" table:number-columns-spanned="2" office:value-type="string">
+						<text:p text:style-name="P13"/>
+					</table:table-cell>
+					<table:covered-table-cell/>
+					<table:table-cell table:style-name="Tabelle1.L2" table:number-columns-spanned="3" office:value-type="string">
+						<text:p text:style-name="P11">
+							<text:date style:data-style-name="N36" text:date-value="2011-03-20T17:12:11">20.03.2011</text:date>
+						</text:p>
+					</table:table-cell>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+				</table:table-row>
+				<table:table-row table:style-name="Tabelle1.3">
+					<table:table-cell table:style-name="Tabelle1.A6" table:number-columns-spanned="14" office:value-type="string">
+						<text:p text:style-name="P15"/>
+					</table:table-cell>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+				</table:table-row>
+			</table:table>
+			<text:p text:style-name="P2"/>
+			<text:p text:style-name="P2"/>
+			<text:p text:style-name="P2"/>
+			<table:table table:name="Tabelle2" table:style-name="Tabelle2">
+				<table:table-column table:style-name="Tabelle2.A"/>
+				<table:table-column table:style-name="Tabelle2.B"/>
+				<table:table-column table:style-name="Tabelle2.C"/>
+				<table:table-column table:style-name="Tabelle2.D"/>
+				<table:table-row table:style-name="Tabelle2.1">
+					<table:table-cell table:style-name="Tabelle2.A1" office:value-type="string">
+						<text:p text:style-name="P18">Inhalt und Umfang (Qualität + Reife)</text:p>
+					</table:table-cell>
+					<table:table-cell table:style-name="Tabelle2.A1" office:value-type="string">
+						<text:p text:style-name="P18">Termin</text:p>
+					</table:table-cell>
+					<table:table-cell table:style-name="Tabelle2.A1" office:value-type="string">
+						<text:p text:style-name="P18">Kosten</text:p>
+					</table:table-cell>
+					<table:table-cell table:style-name="Tabelle2.D1" office:value-type="string">
+						<text:p text:style-name="P18">Aufwand in Stunden</text:p>
+					</table:table-cell>
+				</table:table-row>
+				<table:table-row table:style-name="Tabelle2.2">
+					<table:table-cell table:style-name="Tabelle2.A2" office:value-type="string">
+						<text:p text:style-name="P17">
+							@27932_response;noquote@
+						</text:p>
+					</table:table-cell>
+					<table:table-cell table:style-name="Tabelle2.B2" office:value-type="string">
+						<text:p text:style-name="P23">
+							@27933_response;noquote@
+						</text:p>
+					</table:table-cell>
+					<table:table-cell table:style-name="Tabelle2.B2" office:value-type="string">
+						<text:p text:style-name="P24">
+							@27931_response;noquote@
+						</text:p>
+					</table:table-cell>
+					<table:table-cell table:style-name="Tabelle2.D2" office:value-type="string">
+						<text:p text:style-name="P24">
+							@32055_response;noquote@
+						</text:p>
+					</table:table-cell>
+				</table:table-row>
+				<table:table-row table:style-name="Tabelle2.3">
+					<table:table-cell table:style-name="Tabelle2.A3" table:number-columns-spanned="4" office:value-type="string">
+						<text:p text:style-name="P22">
+							<text:span text:style-name="T3">Erläuterungen Status</text:span>
+							<text:span text:style-name="T2">: </text:span>
+						</text:p>
+					</table:table-cell>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+				</table:table-row>
+				<table:table-row table:style-name="Tabelle2.4">
+					<table:table-cell table:style-name="Tabelle2.A4" table:number-columns-spanned="4" office:value-type="string">
+						<text:p text:style-name="P27">@27936_response;noquote@</text:p>
+					</table:table-cell>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+				</table:table-row>
+				<table:table-row table:style-name="Tabelle2.5">
+					<table:table-cell table:style-name="Tabelle2.A5" table:number-columns-spanned="4" office:value-type="string">
+						<text:p text:style-name="P21">
+							<text:span text:style-name="T3">Notwendige Entscheidungen</text:span>
+							<text:span text:style-name="T2">:</text:span>
+						</text:p>
+					</table:table-cell>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+				</table:table-row>
+				<table:table-row table:style-name="Tabelle2.6">
+					<table:table-cell table:style-name="Tabelle2.A6" table:number-columns-spanned="4" office:value-type="string">
+						<text:p text:style-name="P22">
+							<text:span text:style-name="T2">@32057_response;noquote@</text:span>
+						</text:p>
+						<text:p text:style-name="P9"/>
+					</table:table-cell>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+				</table:table-row>
+				<table:table-row table:style-name="Tabelle2.7">
+					<table:table-cell table:style-name="Tabelle2.A7" table:number-columns-spanned="4" office:value-type="string">
+						<text:p text:style-name="P28">Risiken:</text:p>
+					</table:table-cell>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+				</table:table-row>
+				<table:table-row table:style-name="Tabelle2.8">
+					<table:table-cell table:style-name="Tabelle2.A6" table:number-columns-spanned="4" office:value-type="string">
+						<text:p text:style-name="P27">@27938_response;noquote@</text:p>
+						<text:p text:style-name="P25"/>
+						<text:p text:style-name="P25"/>
+					</table:table-cell>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+				</table:table-row>
+				<table:table-row table:style-name="Tabelle2.9">
+					<table:table-cell table:style-name="Tabelle2.A7" table:number-columns-spanned="4" office:value-type="string">
+						<text:p text:style-name="P28">Abgeschlossene Aktivitäten:</text:p>
+					</table:table-cell>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+				</table:table-row>
+				<table:table-row table:style-name="Tabelle2.10">
+					<table:table-cell table:style-name="Tabelle2.A6" table:number-columns-spanned="4" office:value-type="string">
+						<text:p text:style-name="P26">@32058_response;noquote@</text:p>
+						<text:p text:style-name="P25"/>
+						<text:p text:style-name="P25"/>
+					</table:table-cell>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+				</table:table-row>
+				<table:table-row table:style-name="Tabelle2.11">
+					<table:table-cell table:style-name="Tabelle2.A7" table:number-columns-spanned="4" office:value-type="string">
+						<text:p text:style-name="P35">Nächste Schritte:</text:p>
+					</table:table-cell>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+				</table:table-row>
+				<table:table-row table:style-name="Tabelle2.12">
+					<table:table-cell table:style-name="Tabelle2.A12" table:number-columns-spanned="4" office:value-type="string">
+						<text:p text:style-name="P22">
+							<text:span text:style-name="T2">@32059_response;noquote@</text:span>
+						</text:p>
+					</table:table-cell>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+					<table:covered-table-cell/>
+				</table:table-row>
+			</table:table>
+			<text:p text:style-name="P14"/>
+			<table:table table:name="Tabelle3" table:style-name="Tabelle3">
+				<table:table-column table:style-name="Tabelle3.A"/>
+				<table:table-row table:style-name="Tabelle3.1">
+					<table:table-cell table:style-name="Tabelle3.A1" office:value-type="string">
+						<text:p text:style-name="P22">
+							<text:span text:style-name="T7">Betrachtungen bzgl. des Aufwands</text:span>
+							<text:span text:style-name="T9">df</text:span>
+						</text:p>
+					</table:table-cell>
+				</table:table-row>
+				<table:table-row table:style-name="Tabelle3.2">
+					<table:table-cell table:style-name="Tabelle3.A2" office:value-type="string">
+						<text:p text:style-name="P29"/>
+						<table:table table:name="Tabelle4" table:style-name="Tabelle4">
+							<table:table-column table:style-name="Tabelle4.A"/>
+							<table:table-column table:style-name="Tabelle4.B"/>
+							<table:table-column table:style-name="Tabelle4.C"/>
+							<table:table-column table:style-name="Tabelle4.D" table:number-columns-repeated="2"/>
+							<table:table-column table:style-name="Tabelle4.E"/>
+							<table:table-row table:style-name="Tabelle4.1">
+								<table:table-cell table:style-name="Tabelle4.A1" office:value-type="string">
+									<text:p text:style-name="P31">Abteilung</text:p>
+								</table:table-cell>
+								<table:table-cell table:style-name="Tabelle4.B1" office:value-type="string">
+									<text:p text:style-name="P31">Geplanter Aufwand in Stunden</text:p>
+								</table:table-cell>
+								<table:table-cell table:style-name="Tabelle4.B1" office:value-type="string">
+									<text:p text:style-name="P33">
+										<text:span text:style-name="T4">Ist-Aufwand in Stunden</text:span>
+									</text:p>
+								</table:table-cell>
+								<table:table-cell table:style-name="Tabelle4.B1" office:value-type="string">
+									<text:p text:style-name="P33">
+										<text:span text:style-name="T4">Verbleibender Aufwand (Plan-Ist)</text:span>
+									</text:p>
+								</table:table-cell>
+								<table:table-cell table:style-name="Tabelle4.B1" office:value-type="string">
+									<text:p text:style-name="P31">Erwarteter Restaufwand in Stunden</text:p>
+								</table:table-cell>
+								<table:table-cell table:style-name="Tabelle4.B1" office:value-type="string">
+									<text:p text:style-name="P31">Budgetänderung (zusätzliche Stunden)</text:p>
+								</table:table-cell>
+							</table:table-row>
+						@aufwand_xml;noquote@
+							<table:table-row table:style-name="Tabelle4.1">
+								<table:table-cell table:style-name="Tabelle4.A1" office:value-type="string">
+									<text:p text:style-name="P31">Gesamt</text:p>
+								</table:table-cell>
+								<table:table-cell table:style-name="Tabelle4.B1" office:value-type="string">
+									<text:p text:style-name="P31">@budget_hours;noquote@</text:p>
+								</table:table-cell>
+								<table:table-cell table:style-name="Tabelle4.B1" office:value-type="string">
+									<text:p text:style-name="P33">
+										<text:span text:style-name="T4">@total_logged_hours;noquote@</text:span>
+									</text:p>
+								</table:table-cell>
+								<table:table-cell table:style-name="Tabelle4.B1" office:value-type="string">
+									<text:p text:style-name="P33">
+										<text:span text:style-name="T4">@total_remaining_budget;noquote@</text:span>
+									</text:p>
+								</table:table-cell>
+								<table:table-cell table:style-name="Tabelle4.B1" office:value-type="string">
+									<text:p text:style-name="P31">@remaining_hours;noquote@</text:p>
+								</table:table-cell>
+								<table:table-cell table:style-name="Tabelle4.B1" office:value-type="string">
+									<text:p text:style-name="P31">@total_budget_change;noquote@</text:p>
+								</table:table-cell>
+							</table:table-row>
+						</table:table>
+						<text:p text:style-name="P30">djf</text:p>
+					</table:table-cell>
+				</table:table-row>
+			</table:table>
+			<text:p text:style-name="P14"/>
+			<table:table table:name="Tabelle5" table:style-name="Tabelle5">
+				<table:table-column table:style-name="Tabelle5.A"/>
+				<table:table-row table:style-name="Tabelle5.1">
+					<table:table-cell table:style-name="Tabelle5.A1" office:value-type="string">
+						<text:p text:style-name="P8">
+							<text:span text:style-name="T7">Betrachtungen bzgl. der Kosten in €</text:span>
+						</text:p>
+					</table:table-cell>
+				</table:table-row>
+				<table:table-row table:style-name="Tabelle5.2">
+					<table:table-cell table:style-name="Tabelle5.A2" office:value-type="string">
+						<text:p text:style-name="P29"/>
+						<table:table table:name="Tabelle6" table:style-name="Tabelle6">
+							<table:table-column table:style-name="Tabelle6.A"/>
+							<table:table-column table:style-name="Tabelle6.B"/>
+							<table:table-column table:style-name="Tabelle6.C"/>
+							<table:table-column table:style-name="Tabelle6.D"/>
+							<table:table-column table:style-name="Tabelle6.E"/>
+							<table:table-row table:style-name="Tabelle6.1">
+								<table:table-cell table:style-name="Tabelle6.A1" office:value-type="string">
+									<text:p text:style-name="P31"></text:p>
+								</table:table-cell>
+								<table:table-cell table:style-name="Tabelle6.B1" office:value-type="string">
+									<text:p text:style-name="P31">Plan</text:p>
+								</table:table-cell>
+								<table:table-cell table:style-name="Tabelle6.B1" office:value-type="string">
+									<text:p text:style-name="P33">
+										<text:span text:style-name="T6">Ist</text:span>
+									</text:p>
+								</table:table-cell>
+								<table:table-cell table:style-name="Tabelle6.B1" office:value-type="string">
+									<text:p text:style-name="P33">
+										<text:span text:style-name="T6">Budgetüber-/ unterdeckung (Plan-Ist)</text:span>
+									</text:p>
+								</table:table-cell>
+								<table:table-cell table:style-name="Tabelle6.B1" office:value-type="string">
+									<text:p text:style-name="P31">Budgetänderung (zusätzliche Kosten)</text:p>
+								</table:table-cell>
+							</table:table-row>
+							<table:table-row table:style-name="Tabelle6.1">
+								<table:table-cell table:style-name="Tabelle6.A4" office:value-type="string">
+									<text:p text:style-name="P31">Gesamt</text:p>
+								</table:table-cell>
+								<table:table-cell table:style-name="Tabelle6.B4" office:value-type="string">
+									<text:p text:style-name="P34">@budget;noquote@</text:p>
+								</table:table-cell>
+								<table:table-cell table:style-name="Tabelle6.B4" office:value-type="string">
+									<text:p text:style-name="P33">-@gesamt_ist;noquote@</text:p>
+								</table:table-cell>
+								<table:table-cell table:style-name="Tabelle6.B4" office:value-type="string">
+									<text:p text:style-name="P33">@gesamt_delta1;noquote@</text:p>
+								</table:table-cell>
+								<table:table-cell table:style-name="Tabelle6.B4" office:value-type="string">
+									<text:p text:style-name="P33">@gesamt_delta2;noquote@</text:p>
+								</table:table-cell>
+							</table:table-row>
+						</table:table>
+					</table:table-cell>
+				</table:table-row>
+			</table:table>
+			<text:p text:style-name="Standard"/>
+		</office:text>
+	</office:body>
+</office:document-content>
