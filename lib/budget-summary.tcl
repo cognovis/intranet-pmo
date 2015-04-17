@@ -78,7 +78,7 @@ db_1row hours "select coalesce(sum(remaining_hours),0) as remaining_hours,
 # Get the budgeted_hours
 set hour_ids [db_list hours {select latest_revision from cr_items where parent_id = :budget_id and content_type = 'im_budget_hour'}]
 set budgeted_hours 0
-ds_comment "hour_idsL:: $hour_ids"
+
 foreach revision_id $hour_ids {
     db_1row hour_info "select object_title as title, hour_id, department_id, hours, item_id, approved_p from im_budget_hoursx where hour_id = :revision_id"
     incr budgeted_hours $hours

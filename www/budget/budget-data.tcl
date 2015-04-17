@@ -137,24 +137,33 @@ switch $action {
             -title $title            
 
         # Update the project information
-        db_dml update_project "update im_projects set project_budget = $budget, project_budget_hours = $budget_hours where project_id = (select parent_id from cr_items where item_id = :item_id)"
+        #db_dml update_project "update im_projects set project_budget = $budget, project_budget_hours = $budget_hours where project_id = (select parent_id from cr_items where item_id = :item_id)"
 
         set json [util::json::gen [util::json::object::create [list success true]]]
         ns_return 200 text/text $json
     }        
     approve_budget {
+        ns_log Notice "APPROVING BUDGET"
         # Publish the budget and all associated items. A published
         # budget is an approved one.
 
         item::publish -item_id $budget_id
         db_dml set_approved_p "update im_budgets set approved_p = 't' where budget_id = (select live_revision from cr_items where item_id = :budget_id)"
 
+	# Update the project budget for non programs.
+	# A program has it's own budget calculation and this would screw things up with the
+	# intranet-portfolio-manager
+	set project_type_id [db_string project_type "select project_type_id from im_projects where project_id = (select parent_id from cr_items where item_id = :budget_id)"]
+	if {$project_type_id ne [im_project_type_program]} {
+	    db_dml update_project "update im_projects set project_budget = $budget, project_budget_hours = $budget_hours where project_id = (select parent_id from cr_items where item_id = :budget_id)"        
+	}
+
         set cost_ids [db_list costs {select item_id from cr_items where parent_id = :budget_id and content_type = 'im_budget_cost'}]
         foreach item_id $cost_ids {
             item::publish -item_id $item_id
             db_dml set_approved_p "update im_budget_costs set approved_p = 't' where cost_id = (select live_revision from cr_items where item_id = :item_id)"
         }
-
+	
         set benefit_ids [db_list benefits {select item_id from cr_items where parent_id = :budget_id and content_type = 'im_budget_benefit'}]
         foreach item_id $benefit_ids {
             item::publish -item_id $item_id
@@ -167,11 +176,8 @@ switch $action {
             db_dml set_approved_p "update im_budget_hours set approved_p = 't' where hour_id = (select live_revision from cr_items where item_id = :item_id)"
         }
 
-        
         set json [util::json::gen [util::json::object::create [list success true]]]
-
         ns_return 200 text/text $json
-
     }        
     get_costs {
         if {![exists_and_not_null budget_id]} {

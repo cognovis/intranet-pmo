@@ -257,12 +257,24 @@ template::head::add_javascript -src "/extjs/ux-numeric.js" -order 20
 
 # Approve button for the PMO
 if {[im_permission $user_id "approve_budgets"]} {
+
     set pmo_approve_js ",{
             text: '#intranet-pmo.Approve#',
             handler:function(){
-                budget_form.getForm().load({
+                budget_form.getForm().submit({
+                    method:'GET',
+                    waitTitle:'Connecting',
+                    waitMsg:'Sending data...',
                     url:'budget-data',
-                    params: {action: 'approve_budget', budget_id: '$budget_id'}
+                    params: { action: 'approve_budget',
+                              budget_id: '$budget_id' },
+                    success: function(res){
+                        Ext.Msg.alert('Status', 'Approving successful');
+                    },
+                    failure: function(res, req){
+                        var result=respo.responseText;
+                        Ext.MessageBox.alert(result,'could not connect to database');
+                    }
                 });
             }
         }"
