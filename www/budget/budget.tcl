@@ -17,7 +17,7 @@ if {![exists_and_not_null budget_id]} {
         set budget_id [db_string budget_id "select item_id from cr_items where parent_id = :project_id and content_type = 'im_budget' limit 1" -default ""]
         if {$budget_id eq ""} {
             set page_title "[_ intranet-pmo.New_Budget]"
-	    set budget_id [content::item::new -parent_id $project_id -name "budget_${project_id}" -title "Budget for $project_id" -content_type "im_budget"]
+        	    set budget_id [content::item::new -parent_id $project_id -name "budget_${project_id}" -title "Budget for $project_id" -content_type "im_budget"]
         }
     } else {
         ad_return_error "Missing variable" "You need to provide either budget_id or project_id"
@@ -27,6 +27,8 @@ if {![exists_and_not_null budget_id]} {
 if {$project_id eq ""} {
     set project_id [db_string project_id "select parent_id from cr_items where item_id = :budget_id"]
 }
+
+set project_type_id [db_string project_type "select project_type_id from im_projects where project_id = :project_id"]
 
 # ---------------------------------------------------------------
 # Project Menu Navbar
@@ -59,10 +61,8 @@ set after_success "budget_form.getForm().load(\{
 #
 ##################################
 
-set amount_new_json [util::json::gen [util::json::object::create [list title "#intranet-pmo.Add_Cost#" amount 0 type_id 3751]]]
 
 
-set amount_baseParams [list action "get_costs" budget_id $budget_id]
 set amount_sortInfo  [util::json::gen [util::json::object::create [list field "title" direction "ASC"]]]
 set amount_columnDef [list item_id "string" title "string" amount "float" type_id "integer"]
 
@@ -105,8 +105,19 @@ set column_defs "
             \}
 "
 
+if {$project_type_id == [im_project_type_program]} {
+    set amount_new_json ""
+    set benefit_new_json ""
+    set hour_new_json ""
+} else {
+    set amount_new_json [util::json::gen [util::json::object::create [list title "#intranet-pmo.Add_Cost#" amount 0 type_id 3751]]]
+    set benefit_new_json [util::json::gen [util::json::object::create [list title "#intranet-pmo.Add_Benefit#" benefit 0 type_id 3760]]]    
+    set hour_new_json [util::json::gen [util::json::object::create [list title "#intranet-pmo.New_hour_estimate#" hour 0 department_id 0]]]
+}
+
+set amount_baseParams [list action "get_costs" budget_id $budget_id]
 set amount_store [extjs::DataStore::Json -url "budget-data" -baseParams "$amount_baseParams" -root "items" -id_column "item_id" \
-                      -columnDef "$amount_columnDef" -sortInfo_json "$amount_sortInfo" -prefix "amount_"]
+    -columnDef "$amount_columnDef" -sortInfo_json "$amount_sortInfo" -prefix "amount_"]
 
 set amount_editor [extjs::RowEditor::Editor -prefix "amount_" -url "budget-data" -columnDef "$amount_columnDef" \
                        -baseParams [list action "save_costs" budget_id $budget_id] \
@@ -123,8 +134,6 @@ set amount_cm [extjs::RowEditor::ColumnModel -prefix "amount_" -column_defs_json
 # Economic Benefit
 #
 ##################################
-
-set benefit_new_json [util::json::gen [util::json::object::create [list title "#intranet-pmo.Add_Benefit#" benefit 0 type_id 3760]]]
 
 set benefit_baseParams [list action "get_benefits" budget_id $budget_id]
 set benefit_sortInfo  [util::json::gen [util::json::object::create [list field "title" direction "ASC"]]]
@@ -178,9 +187,6 @@ set benefit_cm [extjs::RowEditor::ColumnModel -prefix "benefit_" -column_defs_js
 # hour Budget
 #
 ##################################
-
-set hour_new_json [util::json::gen [util::json::object::create [list title "#intranet-pmo.New_hour_estimate#" hour 0 department_id 0]]]
-
 
 set hour_baseParams [list action "get_hours" budget_id $budget_id]
 set hour_sortInfo  [util::json::gen [util::json::object::create [list field "title" direction "ASC"]]]

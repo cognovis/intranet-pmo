@@ -87,12 +87,17 @@ ad_proc -public im_budget_summary_component {
     -return_url
 } { 
 } {
-    set budget_id [db_string budget_id "select item_id from cr_items where parent_id = :project_id and content_type = 'im_budget' limit 1" -default ""]
+    set budget_p [db_0or1row budget "select item_id as budget_id, project_type_id from cr_items i, im_projects p where i.parent_id = :project_id and i.parent_id = p.project_id and i.content_type = 'im_budget' limit 1"]
     
-    if {$budget_id ne ""} {
-        set params [list  [list base_url "/intranet-pmo/"]  [list user_id $user_id] [list project_id $project_id] [list return_url [im_biz_object_url $project_id]]]
+    if {$budget_p ne ""} {
+        set params [list  [list base_url "/intranet-pmo/"]  [list user_id $user_id] [list project_id $project_id] [list program_id $project_id] [list return_url [im_biz_object_url $project_id]]]
         
-        set result [ad_parse_template -params $params "/packages/intranet-pmo/lib/budget-summary"]
+        if {$project_type_id == [im_project_type_program]} {
+            set result [ad_parse_template -params $params "/packages/intranet-pmo/lib/program-budget-summary"]              
+        } else {
+            set result [ad_parse_template -params $params "/packages/intranet-pmo/lib/project-budget-summary"]
+        }
+
         return [string trim $result]
     } else {
         return ""

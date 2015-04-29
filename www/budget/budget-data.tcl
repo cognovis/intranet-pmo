@@ -94,18 +94,24 @@ switch $action {
         set json_lists [list]
 
         # Get the data from the database
-	set revision_id [content::item::get_best_revision -item_id $budget_id]
-#        set revision_id [db_string revision_id {select live_revision from cr_items where item_id = :budget_id}]
+        	set revision_id [content::item::get_best_revision -item_id $budget_id]
+        #        set revision_id [db_string revision_id {select live_revision from cr_items where item_id = :budget_id}]
         set vars [list budget budget_hours budget_hours_explanation economic_gain economic_gain_explanation single_costs single_costs_explanation annual_costs annual_costs_explanation investment_costs investment_costs_explanation item_id approved_p]
         
         db_1row budget_info "select object_title as title, [join $vars ","] from im_budgetsx where budget_id = :revision_id"
 
-        set budget_hours [db_string get_hours "select coalesce(sum(b.hours),0) as budget_hours from im_budget_hours b, cr_items ci where parent_id = :budget_id and latest_revision = hour_id"]
-        set investment_costs [db_string get_costs "select coalesce(sum(amount),0) as investment_costs from im_budget_costs, cr_items ci where parent_id = :budget_id and latest_revision = cost_id and type_id = 3751"]
-        set single_costs [db_string get_costs "select coalesce(sum(amount),0) as single_costs from im_budget_costs, cr_items ci where parent_id = :budget_id and latest_revision = cost_id and type_id = 3752"]
-        set annual_costs [db_string get_costs "select coalesce(sum(amount),0) as annual_costs from im_budget_costs, cr_items ci where parent_id = :budget_id and latest_revision = cost_id and type_id = 3753"]
-        set economic_gain [db_string get_hours "select coalesce(sum(b.amount),0) as economic_gain from im_budget_benefits b, cr_items ci where parent_id = :budget_id and latest_revision = benefit_id"]
-        set budget [db_string get_costs "select coalesce(sum(amount),0) as budget from im_budget_costs, cr_items ci where parent_id = :budget_id and latest_revision = cost_id and type_id in (3751,3752)"]
+        set project_type_id [db_string project_type "select project_type_id from im_projects where project_id = (select parent_id from cr_items where item_id = :budget_id)"]
+        if {$project_type_id eq [im_project_type_program]} {
+            set budget_ids [db_list budgets "select item_id from cr_items i, im_projects p where i.parent_id = p.project_id and p.program_id = (select parent_id from cr_items where item_id = :budget_id)"]
+        } else {
+            set budget_ids $budget_id
+        }
+        set budget_hours [db_string get_hours "select coalesce(sum(b.hours),0) as budget_hours from im_budget_hours b, cr_items ci where parent_id in ([template::util::tcl_to_sql_list $budget_ids]) and latest_revision = hour_id"]
+        set investment_costs [db_string get_costs "select coalesce(sum(amount),0) as investment_costs from im_budget_costs, cr_items ci where parent_id in ([template::util::tcl_to_sql_list $budget_ids]) and latest_revision = cost_id and type_id = 3751"]
+        set single_costs [db_string get_costs "select coalesce(sum(amount),0) as single_costs from im_budget_costs, cr_items ci where parent_id in ([template::util::tcl_to_sql_list $budget_ids]) and latest_revision = cost_id and type_id = 3752"]
+        set annual_costs [db_string get_costs "select coalesce(sum(amount),0) as annual_costs from im_budget_costs, cr_items ci where parent_id in ([template::util::tcl_to_sql_list $budget_ids]) and latest_revision = cost_id and type_id = 3753"]
+        set economic_gain [db_string get_hours "select coalesce(sum(b.amount),0) as economic_gain from im_budget_benefits b, cr_items ci where parent_id in ([template::util::tcl_to_sql_list $budget_ids]) and latest_revision = benefit_id"]
+        set budget [db_string get_costs "select coalesce(sum(amount),0) as budget from im_budget_costs, cr_items ci where parent_id in ([template::util::tcl_to_sql_list $budget_ids]) and latest_revision = cost_id and type_id in (3751,3752)"]
 
         # Set the json
         lappend vars title
@@ -150,13 +156,13 @@ switch $action {
         item::publish -item_id $budget_id
         db_dml set_approved_p "update im_budgets set approved_p = 't' where budget_id = (select live_revision from cr_items where item_id = :budget_id)"
 
-	# Update the project budget for non programs.
-	# A program has it's own budget calculation and this would screw things up with the
-	# intranet-portfolio-manager
-	set project_type_id [db_string project_type "select project_type_id from im_projects where project_id = (select parent_id from cr_items where item_id = :budget_id)"]
-	if {$project_type_id ne [im_project_type_program]} {
-	    db_dml update_project "update im_projects set project_budget = $budget, project_budget_hours = $budget_hours where project_id = (select parent_id from cr_items where item_id = :budget_id)"        
-	}
+        	# Update the project budget for non programs.
+        	# A program has it's own budget calculation and this would screw things up with the
+        	# intranet-portfolio-manager
+        	set project_type_id [db_string project_type "select project_type_id from im_projects where project_id = (select parent_id from cr_items where item_id = :budget_id)"]
+        	if {$project_type_id ne [im_project_type_program]} {
+        	    db_dml update_project "update im_projects set project_budget = $budget, project_budget_hours = $budget_hours where project_id = (select parent_id from cr_items where item_id = :budget_id)"        
+        	}
 
         set cost_ids [db_list costs {select item_id from cr_items where parent_id = :budget_id and content_type = 'im_budget_cost'}]
         foreach item_id $cost_ids {
@@ -179,20 +185,50 @@ switch $action {
         set json [util::json::gen [util::json::object::create [list success true]]]
         ns_return 200 text/text $json
     }        
-    get_costs {
+    get_costs - get_benefits {
         if {![exists_and_not_null budget_id]} {
             ad_return_error "Missing budget_id" "You need to provide a budget_id if you want to get the budget with get_budget"
+        }
+        
+        switch $action {
+            get_costs {
+                set content_type "im_budget_cost"
+                set table_name "im_budget_costsx"
+            }
+            get_benefits {
+                set content_type "im_budget_benefit"
+                set table_name "im_budget_benefitsx"
+            }
         }
         
         set json_lists [list]
         set counter 0
         
         # Get the data from the database
-        set cost_revision_ids [db_list costs {select latest_revision from cr_items where parent_id = :budget_id and content_type = 'im_budget_cost'}]
+        set project_type_id [db_string project_type "select project_type_id from im_projects where project_id = (select parent_id from cr_items where item_id = :budget_id)"]
+        if {$project_type_id eq [im_project_type_program]} {
+            set budget_ids [db_list budgets "select item_id from cr_items i, im_projects p where i.parent_id = p.project_id and p.program_id = (select parent_id from cr_items where item_id = :budget_id)"]
+            # Only get the approved costs, which happens to be the live revisions.
+            set cost_revision_ids [db_list costs "select live_revision from cr_items i where i.parent_id in ([template::util::tcl_to_sql_list $budget_ids]) and i.content_type = :content_type"]
+        } else {
+            set cost_revision_ids [db_list costs {select latest_revision from cr_items where parent_id = :budget_id and content_type = :content_type}]
+        }
+
         
         foreach revision_id $cost_revision_ids {
             incr counter
-            db_1row cost_info "select object_title as title, type_id, cost_id, amount, item_id, approved_p from im_budget_costsx where cost_id = :revision_id"
+            if {$project_type_id eq [im_project_type_program]} {
+                # This is a program, so append the project to the title
+                if {[db_0or1row cost_info "select object_title as title, parent_id, cost_id, amount, item_id, approved_p from $table_name where cost_id = :revision_id"]} {
+                    set project_name [db_string project_name "select project_name from im_projects p, cr_items i where i.parent_id = p.project_id and i.item_id = :parent_id "]
+                    set title "$project_name: $title"                
+                } else {
+                    continue
+                }
+            } else {
+                db_1row cost_info "select object_title as title, cost_id, amount, item_id, approved_p from $table_name where cost_id = :revision_id"                
+            }        
+
 
             # Set the json
             set json_list [list]
@@ -229,37 +265,6 @@ switch $action {
         }
         
     }
-    get_benefits {
-        if {![exists_and_not_null budget_id]} {
-            ad_return_error "Missing budget_id" "You need to provide a budget_id if you want to get the budget with get_budget"
-        }
-
-        set json_lists [list]
-        set counter 0
-        
-        # Get the data from the database
-        set benefit_revision_ids [db_list benefits {select latest_revision from cr_items where parent_id = :budget_id and content_type = 'im_budget_benefit'}]
-        
-        foreach revision_id $benefit_revision_ids {
-            incr counter
-            db_1row benefit_info "select object_title as title, benefit_id, amount, item_id, approved_p from im_budget_benefitsx where benefit_id = :revision_id"
-
-            # Set the json
-            set json_list [list]
-            foreach var [list benefit_id amount approved_p title item_id] {
-                lappend json_list $var
-                lappend json_list [set $var]
-            }
-            # Make sure we have no " " " unescaped
-            regsub -all {\"} $json_list {\\\"} json_list
-            lappend json_lists [util::json::object::create $json_list]
-        }
-
-        # Generate the array of items
-        set json_array(results) $counter
-        set json_array(items) [util::json::array::create $json_lists]
-        ns_return 200 text/text [util::json::gen [util::json::object::create [array get json_array]]]
-    }
     save_benefits {
         if {$item_id ne ""} {
             content::revision::new -item_id $item_id -attributes [list [list amount $amount] [list approved_p "f"]] -title $title            
@@ -287,12 +292,30 @@ switch $action {
         set json_lists [list]
         set counter 0
  
-        # Get the data from the database
-        set hour_revision_ids [db_list hours {select latest_revision from cr_items where parent_id = :budget_id and content_type = 'im_budget_hour'}]
+         # Get the data from the database
+        set project_type_id [db_string project_type "select project_type_id from im_projects where project_id = (select parent_id from cr_items where item_id = :budget_id)"]
+        if {$project_type_id eq [im_project_type_program]} {
+            set budget_ids [db_list budgets "select item_id from cr_items i, im_projects p where i.parent_id = p.project_id and p.program_id = (select parent_id from cr_items where item_id = :budget_id)"]
+            # Only get the approved costs, which happens to be the live revisions.
+            set hour_revision_ids [db_list costs "select live_revision from cr_items i where i.parent_id in ([template::util::tcl_to_sql_list $budget_ids]) and i.content_type = 'im_budget_hour'"]
+        } else {
+            set hour_revision_ids [db_list hours {select latest_revision from cr_items where parent_id = :budget_id and content_type = 'im_budget_hour'}]
+        }
+        
         
         foreach revision_id $hour_revision_ids {
             incr counter
-            db_1row hour_info "select object_title as title, hour_id, department_id, hours, item_id, approved_p from im_budget_hoursx where hour_id = :revision_id"
+            if {$project_type_id eq [im_project_type_program]} {
+                # This is a program, so append the project to the title
+                if {[db_0or1row hour_info "select object_title as title, parent_id,hour_id, department_id, hours, item_id, approved_p from im_budget_hoursx where hour_id = :revision_id"]} {
+                    set project_name [db_string project_name "select project_name from im_projects p, cr_items i where i.parent_id = p.project_id and i.item_id = :parent_id "]
+                    set title "$project_name: $title"            
+                } else {
+                    continue
+                }
+            } else {
+                db_1row hour_info "select object_title as title, hour_id, department_id, hours, item_id, approved_p from im_budget_hoursx where hour_id = :revision_id"
+            }        
 
             # Set the json
             set json_list [list]
